@@ -1,0 +1,276 @@
+{
+  "info": {
+    "_postman_id": "1683e456-709c-4f85-b816-1a19d3b87011",
+    "name": "University Research Opportunity Portal API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "58844525",
+    "_collection_link": "https://go.postman.co/collection/58844525-1683e456-709c-4f85-b816-1a19d3b87011?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Create Opportunity 1",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"title\": \"AI-Based Medical Diagnosis\",\r\n  \"description\": \"Research on machine learning for medical diagnosis.\",\r\n  \"research_area\": \"Artificial Intelligence\",\r\n  \"faculty_name\": \"Dr. Ahmed\",\r\n  \"department\": \"Computer Science\",\r\n  \"required_skills\": \"Python, Machine Learning\",\r\n  \"positions\": 3,\r\n  \"deadline\": \"2026-12-15\",\r\n  \"status\": \"Open\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://127.0.0.1:5000/api/opportunities",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "5000",
+          "path": [
+            "api",
+            "opportunities"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Create opportunity #2",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"title\": \"Water Quality Monitoring\",\r\n  \"description\": \"Develop a system for monitoring water pollution.\",\r\n  \"research_area\": \"Environmental Science\",\r\n  \"faculty_name\": \"Dr. Sara Malik\",\r\n  \"department\": \"Environmental Engineering\",\r\n  \"required_skills\": \"Arduino, Data Analysis\",\r\n  \"positions\": 2,\r\n  \"deadline\": \"2026-11-30\",\r\n  \"status\": \"Open\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://127.0.0.1:5000/api/opportunities",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "5000",
+          "path": [
+            "api",
+            "opportunities"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Create opportunity #3",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"title\": \"Cybersecurity Threat Detection\",\r\n  \"description\": \"Detect network attacks using traffic analysis.\",\r\n  \"research_area\": \"Cybersecurity\",\r\n  \"faculty_name\": \"Dr. Bilal Hussain\",\r\n  \"department\": \"Computer Science\",\r\n  \"required_skills\": \"Networking, Python, Wireshark\",\r\n  \"positions\": 5,\r\n  \"deadline\": \"2026-11-30\",\r\n  \"status\": \"Open\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://127.0.0.1:5000/api/opportunities",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "5000",
+          "path": [
+            "api",
+            "opportunities"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Retrieve all opportunities",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://127.0.0.1:5000/api/opportunities",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "5000",
+          "path": [
+            "api",
+            "opportunities"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Retrieve one opportunity by ID",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://127.0.0.1:5000/api/opportunities/4",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "5000",
+          "path": [
+            "api",
+            "opportunities",
+            "4"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Update an opportunity",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"title\": \"AI Medical Diagnosis Updated\",\r\n  \"description\": \"Updated research on AI-assisted diagnosis.\",\r\n  \"research_area\": \"Artificial Intelligence\",\r\n  \"faculty_name\": \"Dr. Ahmed\",\r\n  \"department\": \"Computer Science\",\r\n  \"required_skills\": \"Python, Machine Learning, TensorFlow\",\r\n  \"positions\": 4,\r\n  \"deadline\": \"2026-12-20\",\r\n  \"status\": \"Open\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://127.0.0.1:5000/api/opportunities/4",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "5000",
+          "path": [
+            "api",
+            "opportunities",
+            "4"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Delete an opportunity",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "http://127.0.0.1:5000/api/opportunities/6",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "5000",
+          "path": [
+            "api",
+            "opportunities",
+            "6"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Retrieve the deleted opportunity",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://127.0.0.1:5000/api/opportunities/6",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "5000",
+          "path": [
+            "api",
+            "opportunities",
+            "6"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Test invalid data",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"title\": \"Incomplete Research Opportunity\",\r\n  \"status\": \"Open\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://127.0.0.1:5000/api/opportunities",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "5000",
+          "path": [
+            "api",
+            "opportunities"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
