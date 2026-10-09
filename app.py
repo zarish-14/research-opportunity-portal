@@ -172,7 +172,141 @@ def create_opportunity():
         if db is not None:
             db.close()
 
+@app.route('/api/opportunities/<int:id>', methods=['PUT'])
+def update_opportunity(id):
+    db = None
+    cursor = None
 
-    
+    try:
+        info = request.get_json(silent=True)
+
+        if not isinstance(info, dict):
+            return jsonify({"error": "A valid JSON object is required"}), 400
+
+        required_fields = [
+            "title", "description", "research_area", "faculty_name",
+            "department", "required_skills", "positions", "deadline", "status"
+        ]
+
+        for field in required_fields:
+            if field not in info or info[field] is None or info[field] == "":
+                return jsonify({"error": f"{field} is required"}), 400
+
+        try:
+            positions = int(info["positions"])
+            if positions <= 0:
+                raise ValueError
+        except (ValueError, TypeError):
+            return jsonify({"error": "positions must be a positive integer"}), 400
+
+        if info["status"] not in ["Open", "Closed"]:
+            return jsonify({"error": "Status must be Open or Closed"}), 400
+
+        from datetime import date
+
+        try:
+            deadline = date.fromisoformat(info["deadline"])
+        except (ValueError, TypeError):
+            return jsonify({"error": "deadline must use YYYY-MM-DD format"}), 400
+
+        db = get_db()
+        cursor = db.cursor(dictionary=True)
+
+        cursor.execute(
+            "SELECT id FROM opportunities WHERE id = %s",
+            (id,)
+        )
+
+        if cursor.fetchone() is None:
+            return jsonify({"error": "Opportunity not found"}), 404
+
+        query = """
+            UPDATE opportunities
+            SET title = %s,
+                description = %s,
+                research_area = %s,
+                faculty_name = %s,
+                department = %s,
+                required_skills = %s,
+                positions = %s,
+                deadline = %s,
+                status = %s
+            WHERE id = %s
+        """
+
+        values = (
+            info["title"],
+            info["description"],
+            info["research_area"],
+            info["faculty_name"],
+            info["department"],
+            info["required_skills"],
+            positions,
+            deadline,
+            info["status"],
+            id
+        )
+
+        cursor.execute(query, values)
+        db.commit()
+
+        return jsonify({
+            "message": "Research opportunity updated successfully",
+            "id": id
+        }), 200
+
+    except Exception:
+        if db is not None:
+            db.rollback()
+        app.logger.exception("Failed to update research opportunity")
+        return jsonify({"error": "Unable to update research opportunity"}), 500
+
+    finally:
+        if cursor is not None:
+            cursor.close()
+        if db is not None:
+            db.close()
+
+@app.route('/api/opportunities/<int:id>', methods=['DELETE'])
+def delete_opportunity(id):
+    db = None
+    cursor = None
+
+    try:
+        db = get_db()
+        cursor = db.cursor()
+
+        cursor.execute(
+            "SELECT id FROM opportunities WHERE id = %s",
+            (id,)
+        )
+
+        if cursor.fetchone() is None:
+            return jsonify({"error": "Opportunity not found"}), 404
+
+        cursor.execute(
+            "DELETE FROM opportunities WHERE id = %s",
+            (id,)
+        )
+
+        db.commit()
+
+        return jsonify({
+            "message": "Research opportunity deleted successfully",
+            "id": id
+        }), 200
+
+    except Exception:
+        if db is not None:
+            db.rollback()
+        app.logger.exception("Failed to delete research opportunity")
+        return jsonify({"error": "Unable to delete research opportunity"}), 500
+
+    finally:
+        if cursor is not None:
+            cursor.close()
+        if db is not None:
+            db.close()
+
 if __name__ == '__main__':
     app.run(debug=True)
