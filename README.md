@@ -208,12 +208,4 @@ GitHub Repository URL:
 https://github.com/zarish-14/research-opportunity-portal
 
 
-## 11. Security
-
-- Do not upload the real .env file to GitHub.
-- Do not include database passwords or private credentials in the submission ZIP.
-- Include .env.example with placeholder values.
-- Ensure .env is listed in .gitignore.
-- If credentials were previously exposed, change them.
-
 
