@@ -205,9 +205,8 @@ The required testing includes:
 
 GitHub Repository URL:
 
-YOUR_GITHUB_REPOSITORY_URL
+https://github.com/zarish-14/research-opportunity-portal
 
-Replace the placeholder with the actual GitHub repository URL before submission.
 
 ## 11. Security
 
