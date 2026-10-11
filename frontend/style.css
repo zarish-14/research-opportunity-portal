@@ -1,0 +1,278 @@
+/* General page styling */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f4f7fb;
+    color: #263445;
+    line-height: 1.5;
+}
+
+/* Header */
+header {
+    background-color: #163b65;
+    color: white;
+    padding: 28px 20px;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0 0 8px;
+    font-size: 28px;
+}
+
+header p {
+    margin: 0;
+    color: #dce8f5;
+}
+
+/* Main content */
+.container {
+    width: 95%;
+    max-width: 1500px;
+    margin: 30px auto;
+}
+
+/* Toolbar */
+.toolbar,
+.table-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+}
+
+.toolbar {
+    margin-bottom: 20px;
+}
+
+h2 {
+    margin-top: 0;
+    margin-bottom: 8px;
+}
+
+.toolbar p {
+    margin: 0;
+    color: #64748b;
+}
+
+/* Buttons */
+button {
+    border: none;
+    border-radius: 6px;
+    padding: 11px 16px;
+    background-color: #1769aa;
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #10558d;
+}
+
+button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+button.secondary {
+    background-color: #e2e8f0;
+    color: #263445;
+}
+
+button.secondary:hover {
+    background-color: #cbd5e1;
+}
+
+button.edit-btn {
+    background-color: #0f766e;
+}
+
+button.close-btn {
+    background-color: #b45309;
+}
+
+button.delete-btn {
+    background-color: #b91c1c;
+}
+
+/* Messages */
+#message {
+    margin-bottom: 18px;
+    padding: 0;
+    border-radius: 6px;
+}
+
+#message:empty {
+    display: none;
+}
+
+#message.success {
+    padding: 12px;
+    background-color: #dcfce7;
+    color: #166534;
+}
+
+#message.error {
+    padding: 12px;
+    background-color: #fee2e2;
+    color: #991b1b;
+}
+
+/* Form */
+.form-section,
+.table-section {
+    background-color: white;
+    padding: 24px;
+    margin-bottom: 25px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+}
+
+.form-section[hidden] {
+    display: none;
+}
+
+form {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px 18px;
+}
+
+form label {
+    font-weight: bold;
+    font-size: 14px;
+    align-self: end;
+}
+
+form input,
+form textarea,
+form select {
+    width: 100%;
+    padding: 11px;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    font: inherit;
+    background-color: white;
+}
+
+form input:focus,
+form textarea:focus,
+form select:focus {
+    outline: 2px solid #93c5fd;
+    border-color: #1769aa;
+}
+
+form textarea {
+    resize: vertical;
+}
+
+.form-buttons {
+    grid-column: 1 / -1;
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+/* Table */
+.table-heading {
+    margin-bottom: 18px;
+}
+
+.table-heading h2 {
+    margin: 0;
+}
+
+.table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 1100px;
+}
+
+th,
+td {
+    padding: 12px;
+    border-bottom: 1px solid #e2e8f0;
+    text-align: left;
+    vertical-align: top;
+    font-size: 13px;
+}
+
+th {
+    background-color: #edf3f9;
+    color: #163b65;
+    white-space: nowrap;
+}
+
+tbody tr:hover {
+    background-color: #f8fafc;
+}
+
+td button {
+    padding: 7px 9px;
+    margin: 2px;
+    font-size: 12px;
+    white-space: nowrap;
+}
+
+/* Status labels */
+.status {
+    display: inline-block;
+    padding: 4px 9px;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 12px;
+}
+
+.status.open {
+    background-color: #dcfce7;
+    color: #166534;
+}
+
+.status.closed {
+    background-color: #fee2e2;
+    color: #991b1b;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px;
+    color: #64748b;
+    font-size: 13px;
+}
+
+/* Responsive layout */
+@media (max-width: 650px) {
+    header h1 {
+        font-size: 22px;
+    }
+
+    .toolbar {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    form {
+        grid-template-columns: 1fr;
+    }
+
+    .form-buttons {
+        flex-wrap: wrap;
+    }
+
+    .form-section,
+    .table-section {
+        padding: 15px;
+    }
+}

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>University Research Opportunity Portal</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>University Research Opportunity Portal</h1>
+        <p>Explore and manage university research opportunities</p>
+    </header>
+
+    <main class="container">
+
+        <section class="toolbar">
+            <div>
+                <h2>Research Opportunities</h2>
+                <p>View, create, update, and manage opportunities.</p>
+            </div>
+
+            <button id="addBtn">+ Add Opportunity</button>
+        </section>
+
+        <div id="message" role="status" aria-live="polite"></div>
+
+        <section class="form-section" id="formSection" hidden>
+            <h2 id="formTitle">Add Research Opportunity</h2>
+
+            <form id="opportunityForm">
+                <input type="hidden" id="opportunityId">
+
+                <label for="title">Title *</label>
+                <input type="text" id="title" maxlength="150" required>
+
+                <label for="description">Description *</label>
+                <textarea id="description" rows="3" required></textarea>
+
+                <label for="research_area">Research Area *</label>
+                <input type="text" id="research_area" maxlength="100" required>
+
+                <label for="faculty_name">Faculty Name *</label>
+                <input type="text" id="faculty_name" maxlength="100" required>
+
+                <label for="department">Department *</label>
+                <input type="text" id="department" maxlength="100" required>
+
+                <label for="required_skills">Required Skills *</label>
+                <input type="text" id="required_skills" maxlength="200"
+                       placeholder="Python, Machine Learning" required>
+
+                <label for="positions">Number of Positions *</label>
+                <input type="number" id="positions" min="1" step="1" required>
+
+                <label for="deadline">Application Deadline *</label>
+                <input type="date" id="deadline" required>
+
+                <label for="status">Status *</label>
+                <select id="status" required>
+                    <option value="Open">Open</option>
+                    <option value="Closed">Closed</option>
+                </select>
+
+                <div class="form-buttons">
+                    <button type="submit" id="saveBtn">Save Opportunity</button>
+                    <button type="button" id="cancelBtn" class="secondary">
+                        Cancel
+                    </button>
+                </div>
+            </form>
+        </section>
+
+        <section class="table-section">
+            <div class="table-heading">
+                <h2>Available Opportunities</h2>
+                <button id="refreshBtn" class="secondary">Refresh</button>
+            </div>
+
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Title</th>
+                            <th>Research Area</th>
+                            <th>Faculty</th>
+                            <th>Department</th>
+                            <th>Skills</th>
+                            <th>Positions</th>
+                            <th>Deadline</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="opportunityTable">
+                        <tr>
+                            <td colspan="10">Loading opportunities...</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>University Research Opportunity Portal | Student Project</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
